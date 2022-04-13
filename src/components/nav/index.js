@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HStack } from "@chakra-ui/react";
 
 const Nav = () => {
   return (
-    <nav>
+    <HStack as="nav" spacing="10px">
       <Link to="/">Logo</Link>
       <Link to="/cart">cart</Link>
-    </nav>
+    </HStack>
   );
 };
 
