@@ -1,14 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HStack } from "@chakra-ui/react";
-import { Icon } from "@chakra-ui/core";
+import { Flex, Box, IconButton, Icon, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { RiMoonClearLine } from "@react-icons/all-files/ri/RiMoonClearLine";
+import { RiSunFill } from "@react-icons/all-files/ri/RiSunFill";
 
 const Nav = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue("white", "gray.700");
+
   return (
-    <HStack as="nav" color="#3b3b3b" fontSize="16px" bg="#f6f5ef" w="100%" h="67px">
+    <Flex as="nav" justifyContent="space-between" alignItems="center" bg={bg} p={5}>
       <Link to="/">Logo</Link>
-      <Link to="/cart"> <Icon name="check-circle" size="24px" /></Link>
-    </HStack>
+      <Box>
+        <Link to="/cart">cart</Link>
+        <IconButton variant="unstyle" icon={<Icon as={colorMode === "light" ? RiSunFill : RiMoonClearLine} />} onClick={toggleColorMode} />
+      </Box>
+    </Flex>
   );
 };
 
