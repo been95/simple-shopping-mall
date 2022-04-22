@@ -28,12 +28,19 @@ const theme = extendTheme({
   colors: {
     primary: "red",
     secondary: "olive",
-    // gray: {
-    //   100: "#f1f1f1",
-    //   900: "#222222",
-    // },
+    pink:{
+      100: "#F7B5B7",
+      200: "#FFBBB2",
+    },
+    gray: {
+      100: "#f1f1f1",
+      300: "#767676",
+      900: "#222222",
+    },
   },
-  fontSize: {},
+  fontSize: {
+    primary: "15px",
+  },
   fontWeight: {},
   radii: {},
 });
