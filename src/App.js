@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Nav />
-      <Box p={5}>
+      <Box>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="cart" element={<Cart />} />
