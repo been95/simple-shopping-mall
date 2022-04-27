@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useColorModeValue, Button, Grid, Image, Text} from "@chakra-ui/react";
+import { Box, useColorModeValue, Button, Grid, Image, Text,Tabs, TabList, TabPanels, Tab, TabPanel} from "@chakra-ui/react";
 
 const mockData = [
   { id: 1, title: "[순성] 데일리모노 ISOFIX_카시트", desc: "신생아~7세까지 사용가능", image : 'img/daily_mono.png'},
@@ -17,9 +17,30 @@ const Home = () => {
     <div>
       <Box>
         <Image src='img/slide-welcome-01.png' alt='Dan Abramov' w='100%'/>
+        {/* <Text fontSize='6xl' fontWeight="bold" color="#FFFFFF">어디서도 누릴 수 <br />없는 특별 혜택</Text> */}
       </Box>
+      
+      <Box background='#F8F8FA'>
+          <Grid  templateColumns='repeat(2, 1fr)' gap={3} w='1280px' mt='132px'>
+              <Box mt='80px'>
+                <Text fontSize='4xl' fontWeight="bold">
+                  인기상품
+                </Text>
+                <Text color="#767676" mt='40px'>
+                  어디서도 볼 수 없는 <br/>특별한 혜택
+                </Text>
+              </Box>
+              
+              <Image src='img/best_banner.png' alt='Dan Abramov'/>
+          </Grid> 
+      </Box>
+      
+      <Box mt='140px'>
+        <Image src='img/mini_banner.png' alt='Dan Abramov' w='100%'/>
+      </Box>
+
       <Box align='center' mt='196px' mb='105px'>
-        <Text fontSize='28px' fontWeight="bold">상품</Text>
+        <Text fontSize='1.75rem' fontWeight="bold">상품</Text>
         <Text color="#767676">누릴 수 없는 특별한 혜택</Text>
       </Box>
       <Grid templateColumns='repeat(3, 2fr)' gap={6} align='center' spacing='21px'>
@@ -29,15 +50,15 @@ const Home = () => {
                   <img src={ image } className="img-fluid" />
                 </Box>
                 
-                <Box fontSize="15px" fontWeight="bold" color="#111111"  mt="16px">{title}</Box>
+                <Box fontSize="15px" fontWeight="bold"  mt="16px">{title}</Box>
                 <Box color="#767676" fontSize="14px">{desc}</Box>
-                <Box mt="15px">
-            <Button  bg="pink.100" color="#ffff" size="xs">
-              가격비교
-            </Button>
-            <Button  variant="outline" size="xs" ml="4px">
-              무료배송
-            </Button>
+            <Box mt="15px">
+              <Button  bg="pink.100" color="#ffff" size="xs">
+                가격비교
+              </Button>
+              <Button  variant="outline" size="xs" ml="4px">
+                무료배송
+              </Button>
             </Box>
           </Box>
     
