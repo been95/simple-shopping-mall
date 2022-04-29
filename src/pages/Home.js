@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useColorModeValue, Button, Grid, Image, Text,Tabs, TabList, TabPanels, Tab, TabPanel} from "@chakra-ui/react";
+import { Box, useColorModeValue, Button, Grid, Image, Text, Icon} from "@chakra-ui/react";
 
 const mockData = [
   { id: 1, title: "[순성] 데일리모노 ISOFIX_카시트", desc: "신생아~7세까지 사용가능", image : 'img/daily_mono.png'},
@@ -15,13 +15,20 @@ const Home = () => {
 
   return (
     <div>
-      <Box>
+      <Box position="relative">
         <Image src='img/slide-welcome-01.png' alt='Dan Abramov' w='100%'/>
-        {/* <Text fontSize='6xl' fontWeight="bold" color="#FFFFFF">어디서도 누릴 수 <br />없는 특별 혜택</Text> */}
+        <Box position='absolute' top='370px' mr='295px' ml="300px">
+            <Text fontSize='6xl' fontWeight="bold" color="#FFFFFF">어디서도 누릴 수 <br />없는 특별 혜택</Text>
+            <Text fontSize='xl' color="#FFFFFF" mt='50px'>누릴 수 없는 특급혜택들!! 만나봐요</Text>
+            <Button variantColor="teal" variant="link" mt='47px' color="#FFFFFF">
+              View more
+            </Button>
+        </Box>
       </Box>
       
-      <Box background='#F8F8FA'>
-          <Grid  templateColumns='repeat(2, 1fr)' gap={3} w='1280px' mt='132px'>
+      <Box>
+          <Box background='#F8F8FA' w='100%' h='500px' position="relative"></Box>
+          <Grid  templateColumns='repeat(2, 1fr)' gap={3} mt='-400px' position='absolute'>
               <Box mt='80px'>
                 <Text fontSize='4xl' fontWeight="bold">
                   인기상품
