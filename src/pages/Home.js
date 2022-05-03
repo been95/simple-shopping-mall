@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, useColorModeValue, Button, Grid, Image, Text, Icon} from "@chakra-ui/react";
+import { Box, useColorModeValue, Button, Grid, Image, Text,Divider} from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from '@chakra-ui/react'
 
 const mockData = [
   { id: 1, title: "[순성] 데일리모노 ISOFIX_카시트", desc: "신생아~7세까지 사용가능", image : 'img/daily_mono.png'},
@@ -12,6 +19,7 @@ const mockData = [
 
 const Home = () => {
   const bg = useColorModeValue("white", "gray.700");
+
 
   return (
     <div>
@@ -28,7 +36,7 @@ const Home = () => {
       
       <Box>
           <Box background='#F8F8FA' w='100%' h='500px' position="relative"></Box>
-          <Grid  templateColumns='repeat(2, 1fr)' gap={3} mt='-400px' position='absolute'>
+          <Grid  templateColumns='repeat(3, 1fr)' gap={3} mt='-400px' position='absolute'>
               <Box mt='80px'>
                 <Text fontSize='4xl' fontWeight="bold">
                   인기상품
@@ -37,9 +45,60 @@ const Home = () => {
                   어디서도 볼 수 없는 <br/>특별한 혜택
                 </Text>
               </Box>
-              
+              <Box>
               <Image src='img/best_banner.png' alt='Dan Abramov'/>
+              <Divider borderColor="#FEE49F" position='absolute' w='453px' top='70px' right='200px'/>
+              </Box>
+              
+              <Accordion defaultIndex={[0]} allowMultiple mt="95px">
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex='1' textAlign='left' fontWeight="bold">
+                        01. [루미]20.스펙트i카시트 + [미고]미니플러스5유모차
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={2} >
+                  스펙트아이360회전형카스트<br/>
+                  미고미니플러스5 유모차
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton mt="27px">
+                      <Box flex='1' textAlign='left'   fontWeight="bold">
+                      02. [미고]미니플러스5유모차 + [미고]올인원 아기띠
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={2}>
+                    미고 미니플러스5 유모차<br />
+                    미고 올인원 아기띠
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton  mt="27px" mb="27px">
+                      <Box flex='1' textAlign='left'   fontWeight="bold">
+                      03. [미고]올인원힙시트 + [루미]스펙트i360회전카스트
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={2} >
+                    미고 올인원 아기띠<br />
+                    스펙트아이360회전형카스트
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+
           </Grid> 
+
       </Box>
       
       <Box mt='140px'>
@@ -68,7 +127,6 @@ const Home = () => {
               </Button>
             </Box>
           </Box>
-    
         ))}
       </Grid>
       
