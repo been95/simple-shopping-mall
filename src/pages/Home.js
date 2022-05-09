@@ -1,16 +1,16 @@
 import React from "react";
 import { Box, useColorModeValue, Button, Flex, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
 import ItemList from "../components/items";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion, useViewportScroll,useTransform} from "framer-motion";
 
 const Home = () => {
   const bg = useColorModeValue("white", "gray.700");
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useViewportScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
 
   return (
     <div>
-      {JSON.stringify(scrollYProgress)}
-      <motion.div style={{ width: "100%", height: "100px", backgroundColor: "red", scaleX: scrollYProgress }}>motion div</motion.div>
+     
       {/*배너*/}
       <Box position="relative">
         <Image src="img/slide-welcome-01.png" alt="Dan Abramov" w="100%" />
@@ -98,9 +98,9 @@ const Home = () => {
         </Flex>
       </Box>
       {/*미니배너 */}
-      <Box mt="140px">
-        <Image src="img/mini_banner.png" alt="Dan Abramov" w="100%" />
-      </Box>
+  
+        <motion.div style={{ width: "100%",marginTop: "140px", scrollY}}><Image src="img/mini_banner.png" alt="Dan Abramov" w="100%" /></motion.div>
+      
       {/*상품 */}
       <Box align="center" mt="196px" mb="105px">
         <Text fontSize="1.75rem" fontWeight="bold">
