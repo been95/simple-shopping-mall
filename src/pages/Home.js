@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { Box, useColorModeValue, Button, Flex, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import { Box, useColorModeValue, Button, Flex, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, HStack , chakra  } from "@chakra-ui/react";
 import ItemList from "../components/items";
 import { motion, useViewportScroll,useTransform} from "framer-motion";
 import "slick-carousel/slick/slick.css";
