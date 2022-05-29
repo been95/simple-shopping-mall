@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Grid } from "@chakra-ui/react";
 
 // TODO: api 실데이터반영
-import mockData from "../../entities/items/mock";
+import mockData from "../../../entities/items/mock";
 
 const Item = () => {
   return (
