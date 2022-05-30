@@ -13,6 +13,7 @@ const Nav = () => {
       <Link to="/">Logo</Link>
       <Box>
         <Link to="/cart">cart</Link>
+        <Link to="/login">로그인</Link>
         <IconButton variant="unstyle" icon={<Icon as={colorMode === "light" ? RiSunFill : RiMoonClearLine} />} onClick={toggleColorMode} />
       </Box>
     </Flex>

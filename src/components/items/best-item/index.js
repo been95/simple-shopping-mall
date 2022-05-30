@@ -1,22 +1,22 @@
 import React from "react";
-import { Box, Center, Flex, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import { Box, Grid, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
 
 const BestItem = () => {
   return (
-    <Box background="#F8F8FA" pt={{ base: "10px", md: "100px" }} pl={{ base: "10px", md: "100px" }}>
-      <Flex justifyContent="space-between" alignItems="start">
-        <Flex alignItems="stretch">
-          <Box minW="200px">
+    <Box pt={{ base: "10px", md: "100px" }}>
+        <Grid templateColumns='repeat(3, 1fr)' >
+          <Box minW="200px" pt={{base: "10px", md: "80px" }} pl={{md:"270px"}}>
             <Text fontSize="4xl" fontWeight="bold">
               인기상품
+            </Text>
+            <Text fontSize="m" color="#767676" pt={{base: "10px", md: "40px" }} pr="170px">
+              어디서도 볼 수 없는<br/> 특별한 혜택들
             </Text>
           </Box>
           <Box>
             <Image src="img/best_banner.png" alt="Dan Abramov" />
           </Box>
-        </Flex>
-
-        <Accordion maxW="300px" defaultIndex={[0]}>
+        <Accordion maxW="500px" defaultIndex={[0]} pl={{md:"54px"}} pt={{base: "10px", md: "95px"}}>
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -65,7 +65,9 @@ const BestItem = () => {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
-      </Flex>
+    
+          
+        </Grid>
     </Box>
   );
 };

@@ -5,7 +5,7 @@ const MainBanner = () => {
   return (
     <Box position="relative">
       <Image src="img/slide-welcome-01.png" alt="Dan Abramov" w="100%" />
-      <Box position="absolute" top={{ base: "10px", md: "100px" }} left={{ base: "10px", md: "100px" }}>
+      <Box position="absolute" top={{ base: "10px", md: "316px" }} left={{ base: "10px", md: "200px" }}>
         <Text fontSize={{ base: "lg", md: "6xl" }} fontWeight="bold" color="#FFFFFF">
           어디서도 누릴 수 <br />
           없는 특별 혜택
