@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { Box, Button, Flex, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import { Box,Image, Text, Link } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import MainBanner from "../components/banner/main-banner";
 import ItemList from "../components/items/default-item";
 import BestItem from "../components/items/best-item";
+
 
 const Home = () => {
   var settings = {
@@ -56,7 +57,7 @@ const Home = () => {
         <Slider {...settings}>
           <div>
             <Image src="img/slider_mogo_1.png" alt="Dan Abramov" />
-            <Text style={{ marginTop: 15 }}>[미고]미고미니플러스5유모차</Text>
+            <Link href='ItemDetailView' isExternal><Text style={{ marginTop: 15 }}>[미고]미고미니플러스5유모차</Text></Link>
           </div>
           <div>
             <Image src="img/slider_speat_2.png" alt="Dan Abramov" />
