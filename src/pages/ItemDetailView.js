@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box,Image, Text, Flex, Button,  Accordion, AccordionItem, AccordionButton, AccordionPanel,AccordionIcon, Grid} from "@chakra-ui/react";
-import mockData from "../entities/items/mock";
 const ItemDetailView = () => {
   
   return (
@@ -104,6 +103,7 @@ const ItemDetailView = () => {
       <Text>
         인기상품
       </Text>
+      
     </Box>
 
   )
