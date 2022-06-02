@@ -1,7 +1,10 @@
 import React from 'react'
 import { Box,Image, Text, Flex, Button,  Accordion, AccordionItem, AccordionButton, AccordionPanel,AccordionIcon, Grid} from "@chakra-ui/react";
+import DetailsItem from "../components/items/details-item";
+
+
+
 const ItemDetailView = () => {
-  
   return (
     <Box >
       <Flex ml="20px" mt="48px" mr="20px">
@@ -103,7 +106,7 @@ const ItemDetailView = () => {
       <Text>
         인기상품
       </Text>
-      
+      < DetailsItem />
     </Box>
 
   )
