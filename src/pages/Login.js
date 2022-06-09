@@ -1,86 +1,33 @@
 import React from 'react'
-import { Box,Image, Text,Grid,Divider, List, ListItem, ListIcon, OrderedList,UnorderedList,Link,Input,Button,FindID } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { actionCreators as userActions } from "../redux/modules/user";
-import { emailCheck } from "../shared/common";
+import { Box,Flex, Heading,Button,FormControl,FormLabel,Input } from "@chakra-ui/react";
+
 
 const Login = () => {
-    const dispatch = useDispatch ();
-
-    const [id, setId] = React.useState("");
-    const [pwd, setPwd] = React.useState("");
-
-    const login = () => {
-        if (id === "" || pwd === "") {
-            window.alert("아이디와 비밀번호를 입력해주세요.");
-            return;
-        }
-        if (!emailCheck(id)) {
-            window.alert("이메일 형식이 맞지 않습니다.");
-        }
-        dispatch(userActions.loginDB(id, pwd));
-        };
-    return (
-    <Box>
-        <Grid>
-            <Image m="16px" src="img/supporters.jpg">
-            </Image>
-            <Divider />
-        </Grid>
-        <Grid width="380px" margin="50px auto">
-        <Text size="21px" login_font bold>
-            로그인
-        </Text>
-        <UnorderedList>
-            <ListItem><Link>통합ID 로그인</Link></ListItem>
-            <ListItem><Link>기존ID 로그인</Link></ListItem>
-        </UnorderedList>
-        <Grid margin="18px 0">
-            <Input
-            _onChange={(e) => {
-                setId(e.target.value);
-            }}
-            width="380px"
-            height="45px"
-            placeholder="아이디"
-            />
-            <Input
-            _onChange={(e) => {
-                setPwd(e.target.value);
-            }}
-            width="380px"
-            height="45px"
-            placeholder="비밀번호"
-            type="password"
-            />
-        </Grid>
-        <Grid right margin="-10px 0 15px">
-            <FindID>아이디/비밀번호 찾기 </FindID>
-        </Grid>
-        <Button
-            _onClick={login}
-            margin="0 0 10px"
-            width="100%"
-            height="45px"
-            bg="#fbfbfb"
-            color="#ff6f61"
-            border="1px solid #e7e7e7"
-        >
-            로그인
-        </Button>
-        <Button
-            width="100%"
-            height="45px"
-            bold="false"
-            _onClick={(e) => {
-            history.push("/signup");
-            }}
-        >
-            회원가입
-        </Button>
-        </Grid>
+ 
+  return (
+    <Flex width="full" align="center" justifyContent="center">
+    <Box p={8} maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
+      <Box textAlign="center">
+        <Heading>Login</Heading>
+      </Box>
+      <Box my={4} textAlign="left">
+        <form>
+          <FormControl>
+            <FormLabel>Email</FormLabel>
+            <Input type="email" placeholder="이메일주소를입력하시오" />
+          </FormControl>
+          <FormControl mt={6}>
+            <FormLabel>Password</FormLabel>
+            <Input type="password" placeholder="대문자와소문자를사용해주세요" />
+          </FormControl>
+          <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
+            Sign In
+            </Button>
+        </form>
+      </Box>
     </Box>
-)
+  </Flex>
+  )
 }
 
 export default Login
