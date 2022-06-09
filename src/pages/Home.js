@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-import { Box,Image, Text, Link } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 import MainBanner from "../components/banner/main-banner";
 import ItemList from "../components/items/default-item";
 import BestItem from "../components/items/best-item";
-
+import mockData from "../entities/items/mock";
 
 const Home = () => {
   var settings = {
@@ -55,36 +56,21 @@ const Home = () => {
       {/* {Slider} */}
       <Box mt="109px">
         <Slider {...settings}>
-          <div>
-            <Image src="img/slider_mogo_1.png" alt="Dan Abramov" />
-            <Link href='ItemDetailView' isExternal><Text style={{ marginTop: 15 }}>[미고]미고미니플러스5유모차</Text></Link>
-          </div>
-          <div>
-            <Image src="img/slider_speat_2.png" alt="Dan Abramov" />
-            <Text>[루미]스펙트I 360회전카시트</Text>
-          </div>
-          <div>
-            <Image src="img/slider_migo_3.png" alt="Dan Abramov" />
-            <Text>[미고]올인원힙시트</Text>
-          </div>
-          <div>
-            <Image src="img/slider_speat_migo_4.png" alt="Dan Abramov" />
-            <Text>[루미]스펙트+[미고]미니플러스5</Text>
-          </div>
-          <div>
-            <Image src="img/slider_migi_migo_5.png" alt="Dan Abramov" />
-            <Text>[미고]미니플러스5+[미고]올인원 힙시트</Text>
-          </div>
-          <div>
-            <Image src="img/slider_migo_spaet_6.png" alt="Dan Abramov" />
-            <Text>[미고]올인원힙시트 +[루미]스펙트+ </Text>
-          </div>
+          {mockData.slice(0, 6).map(({ id, image, title }, index) => (
+            <div key={index}>
+              <Link to={`/detail/${id}`}>
+                <Image src={`/${image}`} alt="Dan Abramov" />
+                <Text style={{ marginTop: 15 }}>{title}</Text>
+              </Link>
+            </div>
+          ))}
         </Slider>
       </Box>
 
       {/*미니배너 */}
-      <Box width="full" marginTop={{base:"112px", md:"212px"}}>
-        <Image src={{base:"img/mini_banner_m.png", md:"img/mini_banner.png"}} alt="Dan Abramov" w="100%" />{/*모바일때랑 pc때랑 이미지 다르게하고 싶은데 안 나와요*/}
+      <Box width="full" marginTop={{ base: "112px", md: "212px" }}>
+        <Image src={{ base: "img/mini_banner_m.png", md: "img/mini_banner.png" }} alt="Dan Abramov" w="100%" />
+        {/*모바일때랑 pc때랑 이미지 다르게하고 싶은데 안 나와요*/}
       </Box>
 
       {/*상품 */}
