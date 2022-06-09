@@ -5,7 +5,7 @@ import mockData from "../../../entities/detailed/mock";
 const DetailsItem = () => {
     return (
     <Box pt={{ base: "30px", md: "125px" }}>
-        <Grid templateColumns='repeat(5, 1fr)' gap={6} ml="20px" mr="20px">
+        <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)'}} ml={{ base: "10px", md: "20px"}} mr={{ base: "10px", md: "20px"}}>
         {mockData.map(({ id, title, desc, image }) => (
         <Box key={id}>
             <Box>

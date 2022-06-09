@@ -83,8 +83,8 @@ const Home = () => {
       </Box>
 
       {/*미니배너 */}
-      <Box width="full" marginTop="212px">
-        <Image src="img/mini_banner.png" alt="Dan Abramov" w="100%" />
+      <Box width="full" marginTop={{base:"112px", md:"212px"}}>
+        <Image src={{base:"img/mini_banner_m.png", md:"img/mini_banner.png"}} alt="Dan Abramov" w="100%" />{/*모바일때랑 pc때랑 이미지 다르게하고 싶은데 안 나와요*/}
       </Box>
 
       {/*상품 */}

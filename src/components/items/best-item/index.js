@@ -1,22 +1,23 @@
 import React from "react";
-import { Box, Grid, Image, Text, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import { Box, Grid, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
 
 const BestItem = () => {
   return (
-    <Box pt={{ base: "10px", md: "100px" }}>
-        <Grid templateColumns='repeat(3, 1fr)' >
-          <Box minW="200px" pt={{base: "10px", md: "80px" }} pl={{md:"270px"}}>
-            <Text fontSize="4xl" fontWeight="bold">
+    <Box pt={{ base: "95px", md: "100px" }}>
+        <Grid templateColumns={{base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }} >
+          <Box minW="200px" pt={{base: "10px", md: "80px" }} pl={{md:"270px"}} >
+            <Text fontSize={{ base:"3xl", md: "4xl" }} fontWeight="bold">
               인기상품
             </Text>
-            <Text fontSize="m" color="#767676" pt={{base: "10px", md: "40px" }} pr="170px">
-              어디서도 볼 수 없는<br/> 특별한 혜택들
+            <Text fontSize={{ base:"s", md: "m" }}
+            color="#767676" pt={{base: "10px", md: "40px" }} pr="170px" pb={{base:"50px"}}>{/*모바일버전 글자 가운데 정렬*/}
+              어디서도 볼 수 없는 특별한 혜택들
             </Text>
           </Box>
           <Box>
             <Image src="img/best_banner.png" alt="Dan Abramov" />
           </Box>
-        <Accordion maxW="500px" defaultIndex={[0]} pl={{md:"54px"}} pt={{base: "10px", md: "95px"}}>
+        <Accordion maxW="500px" defaultIndex={[0]} pl={{md:"54px"}} pt={{base: "50px", md: "95px"}}>
           <AccordionItem>
             <h2>
               <AccordionButton>

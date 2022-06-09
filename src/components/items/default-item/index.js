@@ -6,7 +6,7 @@ import mockData from "../../../entities/items/mock";
 
 const Item = () => {
   return (
-    <Grid templateColumns="repeat(3, 2fr)" gap={6} align="center" spacing="21px">
+    <Grid templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)"}} gap={6} align="center" spacing="21px">
       {mockData.map(({ id, title, desc, image }) => (
         <Box key={id}>
           <Box>
