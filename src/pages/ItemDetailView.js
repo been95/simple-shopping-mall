@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Grid } from "@chakra-ui/react";
+import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,} from "@chakra-ui/react";
+
 import DetailsItem from "../components/items/details-item";
 import mockData from "../entities/items/mock";
 
@@ -8,45 +9,54 @@ const ItemDetailView = () => {
   const { id } = useParams();
 
   const item = mockData.find((item) => item.id == id);
+  
 
   return (
     <>
       {item ? (
-        <Box>
-          <Flex ml="20px" mt="48px" mr="20px">
+        <Box >
+          <Flex ml="20px" mt="48px" mr="20px"> 
             <Box>
-              <Image src={`/${item.image}`} alt="Dan Abramov" />
+              <Image src={`/${item.imageitem}`} alt="Dan Abramov" />
             </Box>
-            <Box>
+            <Box ml="70px">
+              <Text fontSize="14px" mb="10px">{item.type}</Text>
+              <Text fontSize="24px" fontWeight="bold">{item.title}</Text>
               <Text fontSize="14px">{item.desc}</Text>
-              <Text fontSize="24px">{item.title}</Text>
+              <Flex align="baseline" mt="20px" mb="30px">
+                <Text fontSize="28px" fontWeight="bold">{item.sale}</Text>
+                <Text fontSize="15px" ml="10px" as='del'>{item.cost}</Text>
+              </Flex>
+              < Divider />
+              <Box maxW="500px" p="20px" border="1px solid #EDEDED">
               <Flex align="baseline" mt={2}>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
+                <Text textTransform="uppercase" fontSize="sm" fontWeight="bold" color="#767676" >
                   배송정보
                 </Text>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
+                <Text ml="20px" textTransform="uppercase" fontSize="sm" fontWeight="bold">
                   무료배송
                 </Text>
               </Flex>
               <Flex align="baseline" mt={2}>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
+                <Text textTransform="uppercase" fontSize="sm" fontWeight="bold" color="#767676">
                   사용연령
                 </Text>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
-                  0~3세까지
+                <Text ml="20px" textTransform="uppercase" fontSize="sm" fontWeight="bold" >
+                  {item.desc}
                 </Text>
               </Flex>
               <Flex align="baseline" mt={2}>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
-                  중량
+                <Text textTransform="uppercase" fontSize="sm" fontWeight="bold" color="#767676">
+                  제품중량
                 </Text>
-                <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="pink.800">
-                  5.8kg
+                <Text ml="20px" textTransform="uppercase" fontSize="sm" fontWeight="bold">
+                  {item.weight}
                 </Text>
               </Flex>
-              <Button>베이비데이 바로가기</Button>
+              </Box>
+              <Button m="15px 0 15px 0"  size='md' height='48px' width='400px' >베이비데이 바로가기</Button>
               {item.options && (
-                <Accordion allowToggle>
+                <Accordion allowToggle border='1px solid #EDEDED'>
                   {item.options.map((option, index) => (
                     <AccordionItem key={index}>
                       <h2>
