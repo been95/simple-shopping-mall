@@ -1,16 +1,55 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,} from "@chakra-ui/react";
+import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,Center } from "@chakra-ui/react";
 
 import DetailsItem from "../components/items/details-item";
 import mockData from "../entities/items/mock";
+import Detailed from "../entities/detailed/mock";
 
 const ItemDetailView = () => {
   const { id } = useParams();
 
   const item = mockData.find((item) => item.id == id);
-  
+  const detailed = Detailed.find((detailed) => detailed.id == id);
 
+  
+  // quantityMinus = () => {
+  //   const { productQuantity } = this.state;
+  //   if (productQuantity > 1) {
+  //     this.setState({
+  //       productQuantity: productQuantity - 1,
+  //     });
+  //   }
+  // };
+
+  // quantityPlus = () => {
+  //   const { productQuantity, productPrice } = this.state;
+  //     this.setState({
+  //       productQuantity: productQuantity + 1,
+  //     });
+  //   }
+  // };
+  // shippingBasketDataTransfer = () => {
+  //   const { productQuantity, productId, colorId } = this.state;
+
+  //   if (colorId !== 0) {
+  //     fetch('경로', {
+  //       method: 'POST',
+  //       headers: {
+  //         Authorization:
+  //           '토큰', 
+  //       },
+  //       body: JSON.stringify({
+  //         ProductId: productId,
+  //         ColorId: colorId,
+  //         quantity: productQuantity,
+  //       }),
+  //     }).then(response => response.json());
+  //     alert('물건을 장바구니에 담았어요!');
+  //   } else {
+  //     alert('장바구니에 담을 제품을 골라주세요!');
+  //   }
+  // };
   return (
     <>
       {item ? (
@@ -76,18 +115,65 @@ const ItemDetailView = () => {
                   ))}
                 </Accordion>
               )}
-
+              {/* <Box className="boxAndBuy">
+                <Box className={quantityBox === true ? 'buyBoxOff' : ''}>
+                  <Box className="quantityBox">
+                    <Box className="closeButtonFlex">
+                      <Box className="nameAndColor">
+                        {productName} / {productColor}
+                      </Box>
+                      <button
+                        onClick={this.quantityBoxRemove}
+                        className="quantityBoxRemoveButton"
+                      >
+                        ✕
+                      </button>
+                    </Box>
+                    <Box className="buttonsAndPrice">
+                      <Box className="twoButtonsBox">
+                        <button
+                          onClick={this.quantityMinus}
+                          className="quantityMinusButton"
+                        >
+                          -
+                        </button>
+                        <Box className="calculator">{productQuantity}</Box>
+                        <button
+                          onClick={this.quantityPlus}
+                          className="quantityPlusButton"
+                        >
+                          +
+                        </button>
+                      </Box>
+                      <Box className="priceCalculator">
+                        {priceComma(multiplyPrice)}원
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box> */}
               <Flex align="baseline" mt={2}>
-                <Button>장바구니</Button>
-                <Button>구매하기</Button>
+                <Button border="1px solid #EDEDED" w="110px" h="56px" mr="20px">장바구니</Button>
+                <Button colorScheme='facebook' w='264px' h='56px'>구매하기</Button>
               </Flex>
             </Box>
+            
           </Flex>
           <Box width="full" marginTop="212px">
-            <Image src="img/mini_banner.png" alt="Dan Abramov" w="100%" />
+          <Image src="../img/supporters.jpg" alt="Dan Abramov" />
           </Box>
-          <Text>인기상품</Text>
+          <Text fontSize="28px" fontWeight="bold" mt="248px" ml="20px" >인기상품</Text>
+              
           <DetailsItem />
+          <Flex ml="20px" mt="48px" mr="20px">
+          <Box>
+            <Image src={`/${item.details}`} alt="Dan Abramov" ml="20px" mt="50px"/>
+          </Box>
+          <Box>
+            
+          </Box>
+          </Flex>
+          
         </Box>
       ) : (
         <Box>존재하지않는상품입니다</Box>

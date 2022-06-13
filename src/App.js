@@ -31,6 +31,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="login" element={<Login />} />
           <Route path="detail/:id" element={<ItemDetailView />} />
+          <Route path="detailed/:id" element={<ItemDetailView />} />
         </Routes>
       </Box>
     </>
