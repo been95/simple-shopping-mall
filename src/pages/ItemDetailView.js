@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,Center } from "@chakra-ui/react";
+import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,Center,Link } from "@chakra-ui/react";
 
 import DetailsItem from "../components/items/details-item";
 import mockData from "../entities/items/mock";
@@ -93,7 +93,7 @@ const ItemDetailView = () => {
                 </Text>
               </Flex>
               </Box>
-              <Button m="15px 0 15px 0"  size='md' height='48px' width='400px' >베이비데이 바로가기</Button>
+              <Button m="15px 0 15px 0"  size='md' height='48px' width='400px' > <Link color='teal.500' href='http://daybabies.firstmall.kr/intro/member_only?return_url=%2Fgoods%2Fview%3Fno%3D3501'>베이비데이 바로가기</Link></Button>
               {item.options && (
                 <Accordion allowToggle border='1px solid #EDEDED'>
                   {item.options.map((option, index) => (
