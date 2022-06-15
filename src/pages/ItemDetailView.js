@@ -10,7 +10,6 @@ const ItemDetailView = () => {
   const { id } = useParams();
 
   const item = mockData.find((item) => item.id == id);
-  const detailed = Detailed.find((detailed) => detailed.id == id);
 
   
   // quantityMinus = () => {
@@ -56,7 +55,7 @@ const ItemDetailView = () => {
         <Box >
           <Flex ml="20px" mt="48px" mr="20px"> 
             <Box>
-              <Image src={`/${item.imageitem}`} alt="Dan Abramov" />
+              <Image src={`/${item.image}`} alt="Dan Abramov" />
             </Box>
             <Box ml="70px">
               <Text fontSize="14px" mb="10px">{item.type}</Text>

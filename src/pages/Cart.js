@@ -1,9 +1,65 @@
 import React from 'react'
-import { Box,Image, Text, Link } from "@chakra-ui/react";
+import {useDispatch,useSelector} from "react-redux"
+import {changeName} from "./../store"
+import { Box,Table,Thead,Tbody,Tfoot,Tr,Th,Td,TableContainer, Button,Image} from "@chakra-ui/react";
 const Cart = () => {
+
+let state = useSelector((state) =>{return state})
+let dispath = useDispatch()
+
   return (
     <Box>
+      <TableContainer>
+  <Table size='sm'>
+    <Thead>
+      <Tr>
+        <Th>상품정보</Th>
+        <Th>할인가</Th>
+        <Th>변경</Th>
+        <Th>수량</Th>
+        <Th isNumeric>주문금액</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      {
+      state.cart.map((a, i)=>
+      <Tr key={i}>
+        <Td>{state.cart[i].name}</Td>
+        <Td>1</Td>
+        <Td>{state.cart[i].count}</Td>
+        <Td><Button onClick={()=>{
+          dispath(changeName())
+        }}>+</Button></Td>
+        <Td isNumeric>30.48</Td>
+      </Tr>
+    )
+    }
+    </Tbody>
+    <Tbody>
       
+      <Tr>
+        <Td>feet</Td>
+        <Td>centimetres (cm)</Td>
+        <Td>millimetres (mm)</Td>
+        <Td isNumeric>30.48</Td>
+      </Tr>
+      <Tr>
+        <Td>yards</Td>
+        <Td>metres (m)</Td>
+        <Td>millimetres (mm)</Td>
+        <Td isNumeric>0.91444</Td>
+      </Tr>
+    </Tbody>
+    <Tfoot>
+      <Tr>
+        <Th>To convert</Th>
+        <Th>into</Th>
+        <Th>into</Th>
+        <Th isNumeric>multiply by</Th>
+      </Tr>
+    </Tfoot>
+  </Table>
+</TableContainer>
     </Box>
   )
 }
