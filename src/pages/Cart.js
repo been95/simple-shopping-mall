@@ -24,8 +24,8 @@ let dispath = useDispatch()
       {
       state.cart.map((a, i)=>
       <Tr key={i}>
-        <Td>{state.cart[i].name}</Td>
-        <Td>1</Td>
+        <Td>{state.cart[i].title}</Td>
+        <Td>{state.cart[i].sale}</Td>
         <Td>{state.cart[i].count}</Td>
         <Td><Button onClick={()=>{
           dispath(changeName())
@@ -34,21 +34,6 @@ let dispath = useDispatch()
       </Tr>
     )
     }
-    </Tbody>
-    <Tbody>
-      
-      <Tr>
-        <Td>feet</Td>
-        <Td>centimetres (cm)</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>30.48</Td>
-      </Tr>
-      <Tr>
-        <Td>yards</Td>
-        <Td>metres (m)</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>0.91444</Td>
-      </Tr>
     </Tbody>
     <Tfoot>
       <Tr>
