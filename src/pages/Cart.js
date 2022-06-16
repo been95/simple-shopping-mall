@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch,useSelector} from "react-redux"
-import {changeName, increase} from "./../store"
+import {changeName, increase} from "./../store/userSlice"
 import { Box,Table,Thead,Tbody,Tfoot,Tr,Th,Td,TableContainer, Button,Image} from "@chakra-ui/react";
 const Cart = () => {
 
