@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text,Flex,Badge } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
@@ -56,11 +56,20 @@ const Home = () => {
       {/* {Slider} */}
       <Box mt="109px">
         <Slider {...settings}>
-          {mockData.slice(0, 6).map(({ id, image, title }, index) => (
+          {mockData.slice(0, 6).map(({ id, image, title,cost,sale }, index) => (
             <div key={index}>
               <Link to={`/detail/${id}`}>
                 <Image src={`/${image}`} alt="Dan Abramov" />
                 <Text style={{ marginTop: 15 }}>{title}</Text>
+                <Flex align="baseline" mt={2}>
+                <Text
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                >
+                  {`${sale}`}
+                </Text>
+                <Text as='del' ml={2}>{`${cost}`} </Text>
+              </Flex>
               </Link>
             </div>
           ))}
