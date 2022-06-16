@@ -5,11 +5,14 @@ let user =createSlice({
     initialState : {name: 'been', age :20},
     reducers:{
         changeName(state){
-            state.age += 1
-        }
+           state.name = 'bin'
+        },
+        increase(state){
+          state.age += 1
+        },
     }
 })
-export let {changeName} = user.actions
+export let {changeName, increase} = user.actions
 
 
 
