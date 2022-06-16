@@ -11,7 +11,7 @@ let dispath = useDispatch()
     <Box>
       <Box>
         {state.user.name}  {state.user.age}의 장바구니
-        <Button onClick={()=>{dispath(increase())}}></Button>
+        <Button onClick={()=>{dispath(increase(100))}}></Button>
       </Box>
 
 

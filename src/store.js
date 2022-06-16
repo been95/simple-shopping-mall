@@ -1,17 +1,14 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-let user =createSlice({ 
-    name :'user',
-    initialState : {name: 'been', age :20},
-    reducers:{
-        changeName(state){
-           state.name = 'bin'
-        },
-        increase(state){
-          state.age += 1
-        },
+let user = createSlice({
+  name : 'user',
+  initialState : {name : 'kim', age : 20},
+  reducers : {
+    increase(state, a){
+      state.age += a.payload
     }
-})
+  }
+}) 
 export let {changeName, increase} = user.actions
 
 
