@@ -10,7 +10,10 @@ let dispath = useDispatch()
   return (
     <Box>
       <Box>
-        {state.user}의 장바구니
+        {state.user.name}  {state.user.age}의 장바구니
+        <Button onClick={()=>{
+                dispath(changeName())
+              }}></Button>
       </Box>
 
 

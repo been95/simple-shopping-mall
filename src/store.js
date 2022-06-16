@@ -2,10 +2,10 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 let user =createSlice({ 
     name :'user',
-    initialState : 'been',
+    initialState : {name: 'been', age :20},
     reducers:{
         changeName(state){
-            return 'bin' + state
+            state.age += 1
         }
     }
 })
