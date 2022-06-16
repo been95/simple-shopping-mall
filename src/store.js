@@ -5,7 +5,7 @@ let user =createSlice({
     initialState : 'been',
     reducers:{
         changeName(state){
-            return 'bin'
+            return 'bin' + state
         }
     }
 })

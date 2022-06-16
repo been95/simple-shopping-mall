@@ -9,42 +9,48 @@ let dispath = useDispatch()
 
   return (
     <Box>
+      <Box>
+        {state.user}의 장바구니
+      </Box>
+
+
+
       <TableContainer>
-  <Table size='sm'>
-    <Thead>
-      <Tr>
-        <Th>상품정보</Th>
-        <Th>할인가</Th>
-        <Th>변경</Th>
-        <Th>수량</Th>
-        <Th isNumeric>주문금액</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      {
-      state.cart.map((a, i)=>
-      <Tr key={i}>
-        <Td>{state.cart[i].title}</Td>
-        <Td>{state.cart[i].sale}</Td>
-        <Td>{state.cart[i].count}</Td>
-        <Td><Button onClick={()=>{
-          dispath(changeName())
-        }}>+</Button></Td>
-        <Td isNumeric>30.48</Td>
-      </Tr>
-    )
-    }
-    </Tbody>
-    <Tfoot>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Tfoot>
-  </Table>
-</TableContainer>
+        <Table size='sm'>
+          <Thead>
+            <Tr>
+              <Th>상품정보</Th>
+              <Th>할인가</Th>
+              <Th>변경</Th>
+              <Th>수량</Th>
+              <Th isNumeric>주문금액</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {
+            state.cart.map((a, i)=>
+            <Tr key={i}>
+              <Td>{state.cart[i].title}</Td>
+              <Td>{state.cart[i].sale}</Td>
+              <Td>{state.cart[i].count}</Td>
+              <Td><Button onClick={()=>{
+                dispath(changeName())
+              }}>+</Button></Td>
+              <Td isNumeric>30.48</Td>
+            </Tr>
+          )
+          }
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>To convert</Th>
+              <Th>into</Th>
+              <Th>into</Th>
+              <Th isNumeric>multiply by</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
     </Box>
   )
 }
