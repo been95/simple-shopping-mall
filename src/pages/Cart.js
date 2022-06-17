@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeName, increase } from "./../store/userSlice";
 import { addCount } from "./../store";
-import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image } from "@chakra-ui/react";
+import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image,Flex } from "@chakra-ui/react";
 const Cart = () => {
   let state = useSelector((state) => {
     return state;
@@ -11,15 +11,6 @@ const Cart = () => {
 
   return (
     <Box>
-      <Box>
-        {state.user.name} {state.user.age}의 장바구니
-        <Button
-          onClick={() => {
-            dispath(increase(100));
-          }}
-        ></Button>
-      </Box>
-
       <TableContainer>
         <Table size="sm">
           <Thead>
@@ -38,13 +29,22 @@ const Cart = () => {
                 <Td>{state.cart[i].sale}</Td>
                 <Td>{state.cart[i].count}</Td>
                 <Td>
-                  <Button
+                <Flex align="baseline">
+                <Button
                     onClick={() => {
                       dispath(addCount(state.cart[i].id));
                     }}
                   >
                     +
                   </Button>
+                  <Button
+                    onClick={() => {
+                      dispath(addCount(state.cart[i].id));
+                    }}
+                  >
+                    -
+                  </Button>
+                </Flex>
                 </Td>
                 <Td isNumeric>30.48</Td>
               </Tr>
