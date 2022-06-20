@@ -52,10 +52,10 @@ const Cart = () => {
           </Tbody>
           <Tfoot>
             <Tr>
-              <Th>To convert</Th>
+              <Th><Button>선택상품삭제</Button></Th>
               <Th>into</Th>
               <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
+              <Th isNumeric>합계:</Th>
             </Tr>
           </Tfoot>
         </Table>
