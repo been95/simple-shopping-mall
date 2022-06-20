@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeName, increase } from "./../store/userSlice";
-import { addCount } from "./../store";
+import { addCount,addMinus } from "./../store";
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image,Flex } from "@chakra-ui/react";
 const Cart = () => {
   let state = useSelector((state) => {
@@ -39,7 +39,7 @@ const Cart = () => {
                   </Button>
                   <Button
                     onClick={() => {
-                      dispath(addCount(state.cart[i].id));
+                      dispath(addMinus(state.cart[i].id));
                     }}
                   >
                     -
