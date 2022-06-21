@@ -1,12 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeName, increase } from "./../store/userSlice";
-import { addCount,addMinus } from "./../store";
+import { addCount } from "./../store";
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image,Flex } from "@chakra-ui/react";
 const Cart = () => {
-  let state = useSelector((state) => {
-    return state;
-  });
+  let state = useSelector((state)=>state)
   let dispath = useDispatch();
 
   return (
@@ -41,7 +38,13 @@ const Cart = () => {
                 </Flex>
                 </Td>
                 <Td >원</Td>
-                <Td isNumeric>삭제</Td>
+                <Td isNumeric> <Button size="sm"
+                    onClick={() => {
+                      dispath(addCount(state.cart[i].id));
+                    }}
+                  >
+                    삭제
+                  </Button></Td>
               </Tr>
             ))}
           </Tbody>

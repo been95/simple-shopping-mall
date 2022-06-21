@@ -1,54 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,Center,Link,Tabs, TabList, TabPanels, Tab, TabPanel} from "@chakra-ui/react";
-
+import { addItem } from "./../store";
+import {useDispatch} from "react-redux"
 import DetailsItem from "../components/items/details-item";
 import mockData from "../entities/items/mock";
-import Detailed from "../entities/detailed/mock";
 
 const ItemDetailView = () => {
   const { id } = useParams();
 
   const item = mockData.find((item) => item.id == id);
+  let dispatch = useDispatch();
 
-  
-  // quantityMinus = () => {
-  //   const { productQuantity } = this.state;
-  //   if (productQuantity > 1) {
-  //     this.setState({
-  //       productQuantity: productQuantity - 1,
-  //     });
-  //   }
-  // };
-
-  // quantityPlus = () => {
-  //   const { productQuantity, productPrice } = this.state;
-  //     this.setState({
-  //       productQuantity: productQuantity + 1,
-  //     });
-  //   }
-  // };
-  // shippingBasketDataTransfer = () => {
-  //   const { productQuantity, productId, colorId } = this.state;
-
-  //   if (colorId !== 0) {
-  //     fetch('경로', {
-  //       method: 'POST',
-  //       headers: {
-  //         Authorization:
-  //           '토큰', 
-  //       },
-  //       body: JSON.stringify({
-  //         ProductId: productId,
-  //         ColorId: colorId,
-  //         quantity: productQuantity,
-  //       }),
-  //     }).then(response => response.json());
-  //     alert('물건을 장바구니에 담았어요!');
-  //   } else {
-  //     alert('장바구니에 담을 제품을 골라주세요!');
-  //   }
-  // };
   return (
     <>
       {item ? (
@@ -114,45 +77,12 @@ const ItemDetailView = () => {
                   ))}
                 </Accordion>
               )}
-              {/* <Box className="boxAndBuy">
-                <Box className={quantityBox === true ? 'buyBoxOff' : ''}>
-                  <Box className="quantityBox">
-                    <Box className="closeButtonFlex">
-                      <Box className="nameAndColor">
-                        {productName} / {productColor}
-                      </Box>
-                      <button
-                        onClick={this.quantityBoxRemove}
-                        className="quantityBoxRemoveButton"
-                      >
-                        ✕
-                      </button>
-                    </Box>
-                    <Box className="buttonsAndPrice">
-                      <Box className="twoButtonsBox">
-                        <button
-                          onClick={this.quantityMinus}
-                          className="quantityMinusButton"
-                        >
-                          -
-                        </button>
-                        <Box className="calculator">{productQuantity}</Box>
-                        <button
-                          onClick={this.quantityPlus}
-                          className="quantityPlusButton"
-                        >
-                          +
-                        </button>
-                      </Box>
-                      <Box className="priceCalculator">
-                        {priceComma(multiplyPrice)}원
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box> */}
               <Flex align="baseline" mt={2}>
-                <Button border="1px solid #EDEDED" w="110px" h="56px" mr="20px">장바구니</Button>
+                <Button border="1px solid #EDEDED" w="110px" h="56px" mr="20px"
+                onClick={()=>{
+                  dispatch(addItem({id: 1, title: "[순성] 데일리모노 ISOFIX_카시트", sale: "298,000원", count: 1,}))
+                }}
+                >장바구니</Button>
                 <Button colorScheme='facebook' w='264px' h='56px'>구매하기</Button>
               </Flex>
             </Box>
