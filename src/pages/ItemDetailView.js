@@ -8,7 +8,6 @@ import mockData from "../entities/items/mock";
 
 const ItemDetailView = () => {
   const { id } = useParams();
-
   const item = mockData.find((item) => item.id == id);
   let dispatch = useDispatch();
 

@@ -11,6 +11,9 @@ let cart = createSlice({
      let number =state.findIndex((a)=>a.id ===action.payload)
      state[number].count++
     },
+    addDelete(state, action){
+      let number =state.findIndex((a)=>a.id ===action.payload) 
+    }
     addItem(state, action){
       state.push(action.payload)
     }
