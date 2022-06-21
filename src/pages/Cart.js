@@ -19,7 +19,8 @@ const Cart = () => {
               <Th>할인가</Th>
               <Th>변경</Th>
               <Th>수량</Th>
-              <Th isNumeric>주문금액</Th>
+              <Th>주문금액</Th>
+              <Th isNumeric>삭제</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -37,24 +38,18 @@ const Cart = () => {
                   >
                     +
                   </Button>
-                  <Button
-                    onClick={() => {
-                      dispath(addMinus(state.cart[i].id));
-                    }}
-                  >
-                    -
-                  </Button>
                 </Flex>
                 </Td>
-                <Td isNumeric>30.48</Td>
+                <Td >원</Td>
+                <Td isNumeric>삭제</Td>
               </Tr>
             ))}
           </Tbody>
           <Tfoot>
             <Tr>
-              <Th><Button>선택상품삭제</Button></Th>
-              <Th>into</Th>
-              <Th>into</Th>
+              <Th></Th>
+              <Th></Th>
+              <Th></Th>
               <Th isNumeric>합계:</Th>
             </Tr>
           </Tfoot>
