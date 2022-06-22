@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box,Image, Text, Link,Grid,GridItem ,Button} from "@chakra-ui/react";
-import mockData from "../../../entities/detailed/mock";
+import { Box,Grid,Button} from "@chakra-ui/react";
+import detailedMock from "../../../entities/detailed/mock";
 
 const DetailsItem = () => {
     return (
     <Box pt={{ base: "30px", md: "125px" }}>
         <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)'}} ml={{ base: "10px", md: "20px"}} mr={{ base: "10px", md: "20px"}}>
-        {mockData.map(({ id, title, desc, image }) => (
+        {detailedMock.map(({ id, title, desc, image }) => (
         <Box key={id}>
             <Box>
             <img src={image} className="img-fluid" />

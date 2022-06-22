@@ -4,6 +4,7 @@ import { Box, Image, Text,Flex,Badge } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 import MainBanner from "../components/banner/main-banner";
 import ItemList from "../components/items/default-item";
@@ -46,6 +47,14 @@ const Home = () => {
       },
     ],
   };
+  
+  
+  
+  
+  useEffect(()=>{
+    localStorage.setItem('watched', JSON.stringify( [] ))
+  },[]) 
+  
   return (
     <div>
       {/*main banner*/}

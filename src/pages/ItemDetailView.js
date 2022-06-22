@@ -3,14 +3,25 @@ import { useParams } from "react-router-dom";
 import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider,Center,Link,Tabs, TabList, TabPanels, Tab, TabPanel} from "@chakra-ui/react";
 import { addItem } from "./../store";
 import {useDispatch} from "react-redux"
+import { useEffect } from "react";
 import DetailsItem from "../components/items/details-item";
 import mockData from "../entities/items/mock";
+
 
 const ItemDetailView = () => {
   const { id } = useParams();
   const item = mockData.find((item) => item.id == id);
   let dispatch = useDispatch();
-
+  
+  useEffect(()=>{
+    let pull = localStorage.getItem('watched')
+    pull = JSON.parse(pull)
+    pull.push(item.id)
+    pull = new Set(pull)
+    pull = Array.from(pull)
+    localStorage.setItem('watched', JSON.stringify(pull))
+  }, []);
+  
   return (
     <>
       {item ? (
@@ -97,6 +108,7 @@ const ItemDetailView = () => {
           <TabList>
             <Tab>상세페이지</Tab>
             <Tab>교환/반품/배송</Tab>
+            <Tab>상품후기</Tab>
           </TabList>
 
           <TabPanels>

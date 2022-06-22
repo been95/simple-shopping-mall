@@ -3,7 +3,7 @@ import { Box,Flex, Heading,Button,FormControl,FormLabel,Input } from "@chakra-ui
 
 
 const Login = () => {
- 
+
   return (
     <Flex width="full" align="center" justifyContent="center">
     <Box p={8} maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
@@ -21,8 +21,11 @@ const Login = () => {
             <Input type="password" placeholder="대문자와소문자를사용해주세요" />
           </FormControl>
           <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
-            Sign In
-            </Button>
+            로그인
+          </Button>
+          <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
+            회원가입
+          </Button>
         </form>
       </Box>
     </Box>
