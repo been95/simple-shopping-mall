@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCount,addMinus, } from "./../store";
+import { addCount,addMinus,addDelete } from "./../store";
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image,Flex } from "@chakra-ui/react";
 const Cart = () => {
-  let state = useSelector((state)=>state)
+  let state = useSelector((state)=>state,)
   let dispath = useDispatch();
 
   return (
@@ -30,7 +30,7 @@ const Cart = () => {
                 <Flex align="baseline">
                 <Button
                     onClick={() => {
-                      dispath(addCount(state.cart[i].id));
+                      dispath(addCount(state.cart[i].id,));
                     }}
                   >
                     +
@@ -45,10 +45,10 @@ const Cart = () => {
                   
                 </Flex>
                 </Td>
-                <Td >원</Td>
+                <Td >{state.cart[i].sale}</Td>
                 <Td isNumeric> <Button size="sm"
                     onClick={() => {
-                      dispath(addCount(state.cart[i].id));
+                      dispath(addDelete(state.cart[i].id));
                     }}
                   >
                     삭제
