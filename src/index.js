@@ -6,20 +6,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ColorModeScript } from "@chakra-ui/react";
-import{Provider} from "react-redux";
+import { Provider } from "react-redux";
 import theme from "./theme";
-import store from "./store.js";
+import store from "./store/index.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <App />
-      </BrowserRouter>
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
     </Provider>
   </React.StrictMode>
 );
