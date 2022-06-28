@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-  { id: 1, title: "[미고] 미고미니플러스5유모차",sale: "298,000원", count: 1},
   { id: 0,  title: "[순성] 데일리모노 ISOFIX_카시트",  sale: "298,000원",count: 1 },
   { id: 1, title: "[다이치] 듀얼 오가닉 Larch-Fix 카시트",  sale: "176,000원",count: 1},
   { id: 2,  title: "[루미] 스펙트 I_ 360회전카시트",  sale: "378,000원",count: 1},
@@ -24,7 +23,7 @@ const initialState = [
 ];
 
 export const cartReducer = createSlice({
-  name: "cart",
+  name: "cart",  
   initialState,
   reducers: {
     addCount(state, action) {
