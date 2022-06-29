@@ -104,7 +104,7 @@ const ItemDetailView = () => {
                   h="56px"
                   mr="20px"
                   onClick={() => {
-                    dispatch(addItem({ id: 1, title: "[순성] 데일리모노 ISOFIX_카시트", sale: "298,000원", count: 1 }));
+                    dispatch(addItem({ id: id, title: "[순성] 데일리모노 ISOFIX_카시트", sale: "298,000원", count: 1 }));
                   }}
                 >
                   장바구니

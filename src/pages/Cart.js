@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCount, addMinus, addDelete } from "../store/cart/slice";
+import { addCount, addMinus, addDelete,priceSum } from "../store/cart/slice";
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image, Flex } from "@chakra-ui/react";
 const Cart = () => {
   let state = useSelector((state) => state);
@@ -64,7 +64,9 @@ const Cart = () => {
               <Th></Th>
               <Th></Th>
               <Th></Th>
-              <Th isNumeric>합계:</Th>
+              <Th isNumeric >
+                합계:{priceSum}
+              </Th>
             </Tr>
           </Tfoot>
         </Table>
