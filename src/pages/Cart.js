@@ -65,7 +65,7 @@ const Cart = () => {
               <Th></Th>
               <Th></Th>
               <Th isNumeric >
-                합계:{priceSum}
+                합계:{priceSum.toLocaleString()}
               </Th>
             </Tr>
           </Tfoot>
