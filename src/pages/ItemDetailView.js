@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Box, Image, Text, Flex, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Divider, Center, Link, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { addItem } from "../store/cart/slice";
 import { useDispatch } from "react-redux";
@@ -9,8 +9,15 @@ import mockData from "../entities/items/mock";
 
 const ItemDetailView = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const item = mockData.find((item) => item.id == id);
-  let dispatch = useDispatch();
+  const onCartClick = (item) => {
+    const { id, sale, title } = item;
+    dispatch(addItem({ id, title, sale }));
+    navigate("/cart");
+  };
 
   useEffect(() => {
     let pull = localStorage.getItem("watched");
@@ -98,15 +105,7 @@ const ItemDetailView = () => {
                 </Accordion>
               )}
               <Flex align="baseline" mt={2}>
-                <Button
-                  border="1px solid #EDEDED"
-                  w="110px"
-                  h="56px"
-                  mr="20px"
-                  onClick={() => {
-                    dispatch(addItem({ id: id, title: "[순성] 데일리모노 ISOFIX_카시트", sale: "298,000원", count: 1 }));
-                  }}
-                >
+                <Button border="1px solid #EDEDED" w="110px" h="56px" mr="20px" onClick={() => onCartClick(item)}>
                   장바구니
                 </Button>
                 <Button colorScheme="facebook" w="264px" h="56px">

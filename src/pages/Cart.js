@@ -1,10 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCount, addMinus, addDelete,priceSum } from "../store/cart/slice";
+import { addCount, addMinus, addDelete } from "../store/cart/slice";
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image, Flex } from "@chakra-ui/react";
+
+import { useCart } from "../hooks/useCart";
+
 const Cart = () => {
-  let state = useSelector((state) => state);
   let dispath = useDispatch();
+  const { sum, cart } = useCart();
 
   return (
     <Box>
@@ -21,36 +24,36 @@ const Cart = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {state.cart.map((a, i) => (
+            {cart.map((a, i) => (
               <Tr key={i}>
-                <Td>{state.cart[i].title}</Td>
-                <Td>{state.cart[i].sale}</Td>
-                <Td>{state.cart[i].count}</Td>
+                <Td>{cart[i].title}</Td>
+                <Td>{cart[i].sale}</Td>
+                <Td>{cart[i].count}</Td>
                 <Td>
                   <Flex align="baseline">
                     <Button
                       onClick={() => {
-                        dispath(addCount(state.cart[i].id));
+                        dispath(addCount(cart[i].id));
                       }}
                     >
                       +
                     </Button>
                     <Button
                       onClick={() => {
-                        dispath(addMinus(state.cart[i].id));
+                        dispath(addMinus(cart[i].id));
                       }}
                     >
                       -
                     </Button>
                   </Flex>
                 </Td>
-                <Td>{state.cart[i].sale}</Td>
+                <Td>{cart[i].sale}</Td>
                 <Td isNumeric>
                   {" "}
                   <Button
                     size="sm"
                     onClick={() => {
-                      dispath(addDelete(state.cart[i].id));
+                      dispath(addDelete(cart[i].id));
                     }}
                   >
                     삭제
@@ -64,9 +67,7 @@ const Cart = () => {
               <Th></Th>
               <Th></Th>
               <Th></Th>
-              <Th isNumeric >
-                합계:{priceSum.toLocaleString()}
-              </Th>
+              <Th isNumeric>합계:{sum}</Th>
             </Tr>
           </Tfoot>
         </Table>
