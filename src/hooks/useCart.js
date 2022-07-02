@@ -10,14 +10,10 @@ export const useCart = () => {
 
     return prev;
   }, 0);
-  
-  
-  
-  const addTocart = state.cart.reduce((item)=>{
-    alert("장바구니에 추가 되었습니다.")
 
-
-  })
+  const addTocart = state.cart.reduce((item) => {
+    if (typeof item === "object") alert("장바구니에 추가 되었습니다.");
+  });
   return {
     cart: state.cart,
     sum,
