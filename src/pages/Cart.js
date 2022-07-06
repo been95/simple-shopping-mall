@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, } from "react-redux";
 import { addCount, addMinus, addDelete } from "../store/cart/slice";
-import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image, Flex } from "@chakra-ui/react";
+import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Button, Image, Flex, Checkbox, Stack } from "@chakra-ui/react";
 
 import { useCart } from "../hooks/useCart";
 
@@ -9,8 +9,10 @@ const Cart = () => {
   let dispath = useDispatch();
   const { sum, cart } = useCart();
 
+
   return (
     <Box>
+      
       <TableContainer>
         <Table size="sm">
           <Thead>
@@ -24,6 +26,7 @@ const Cart = () => {
             </Tr>
           </Thead>
           <Tbody>
+            
             {cart.map((a, i) => (
               <Tr key={i}>
                 <Td>{cart[i].title}</Td>
