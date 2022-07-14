@@ -36,6 +36,7 @@ export const cartReducer = createSlice({
         }
         return item;
       });
+
     },
     addMinus(state, action) {
       return state.map((item) => {
@@ -71,6 +72,7 @@ export const cartReducer = createSlice({
         },
       ];
     },
+    
   },
 });
 
